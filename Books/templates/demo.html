@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block content %}
+    <html>
+    <form action="",method ="POST">{% csrf_token %}
+        name:<input type="Text" name="name"><br>
+        email:<input type="text" name="email"><br>
+        message:<input type="text" name="message"><br>
+        image:<input type="file" name="image" required><br>
+        <input type="submit" >
+    </form>
+    </html>
+    {% endblock content %}

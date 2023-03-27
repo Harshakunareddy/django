@@ -1,0 +1,17 @@
+<html>
+    <body bgcolor="blue">
+        <h1>HELLO WORLD</h1>
+        <h2>{{name}}</h2>
+        {% block content %}
+        {% for i in post %}
+        Name:{{i.name}}<br>
+        Age:{{i.age}}
+        Branch:{{i.branch}}
+        <img src="{{i.image.url}}">
+        {% endfor %}
+        {% endblock content %}
+        <form>
+
+        </form>
+    </body>
+</html>

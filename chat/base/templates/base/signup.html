@@ -1,0 +1,50 @@
+{% extends 'base/base.html' %}
+
+{% block title %}SignUp{% endblock %}
+
+{% block content %}
+
+<div class="px-6 py-6">
+    <h1 class="text-center lg:text-5xl font-semibold text-teal-400">
+        SignUp
+    </h1>
+</div>
+
+<div class="w-1/4 bg-gray-200 px-6 py-6 mt-6 mx-auto rounded-xl">
+    <form method="POST" action=".">
+
+        {% csrf_token %}
+
+        <div class="mb-5">
+            <label class="font-semibold">Username:</label>
+            <input type="text" name="username" class="w-full px-4 py-2 rounded-xl">
+        </div>
+
+        <div class="mb-5">
+            <label class="font-semibold">Password:</label>
+            <input type="password" name="password1" class="w-full px-4 py-2 rounded-xl">
+        </div>
+
+        <div class="mb-5">
+            <label class="font-semibold">Repeat Password:</label>
+            <input type="password" name="password2" class="w-full px-4 py-2 rounded-xl">
+        </div>
+
+        
+
+        {% if form.errors or form.non_field_errors %}
+            <div class="mb-3 p-6 bg-red-100 rounded-xl">
+                {% for field in form %}
+                {{ field.errors }}
+                {% endfor %}
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+
+
+        <button class="rounded-xl bg-teal-400 px-3 py-3 text-white">Submit</button>
+    </form>
+
+    
+</div>
+{% endblock %}
